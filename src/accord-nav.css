@@ -1,0 +1,54 @@
+.accord-nav,
+.accord-nav * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  color: #222;
+}
+
+.accord-nav {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.accord-nav__section {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  border-bottom: 1px solid #eee;
+}
+
+.accord-nav__section:last-child {
+  border-bottom: none;
+}
+
+.accord-nav__section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+}
+
+.accord-nav__section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.accord-nav__section-header-arrow {
+  font-weight: 600;
+  transform: rotate(90deg);
+}
+
+.accord-nav__section[aria-expanded='true'] .accord-nav__section-header-arrow {
+  transform: rotate(-90deg);
+}
