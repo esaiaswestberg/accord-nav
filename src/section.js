@@ -15,6 +15,10 @@ export default class Section {
     this.#navigationInstance.addSection(section)
   }
 
+  addLink(link) {
+    this.#navigationInstance.addLink(link)
+  }
+
   get element() {
     return this.#element
   }

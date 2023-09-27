@@ -1,6 +1,7 @@
 export default class Navigation {
   #container
   #sections = []
+  #links = []
 
   constructor(container) {
     this.#container = container
@@ -9,7 +10,12 @@ export default class Navigation {
 
   addSection(section) {
     this.#sections.push(section)
-    this.#updateSectionsIfNecessary()
+    this.#updateContent()
+  }
+
+  addLink(link) {
+    this.#links.push(link)
+    this.#updateContent()
   }
 
   #initializeContainer() {
@@ -17,14 +23,10 @@ export default class Navigation {
     this.#container.setAttribute('role', 'navigation')
   }
 
-  #updateSectionsIfNecessary() {
-    if (this.#areSectionElementsCorrect()) return
-    this.#updateSections()
-  }
-
-  #updateSections() {
+  #updateContent() {
     this.#removeContainerChildren()
     this.#addSectionElements()
+    this.#addLinkElements()
   }
 
   #removeContainerChildren() {
@@ -37,15 +39,7 @@ export default class Navigation {
     this.#sections.forEach((section) => this.#container.appendChild(section.element))
   }
 
-  #areSectionElementsCorrect() {
-    const sectionElements = this.#sections.map((section) => section.element)
-    const containerSections = Array.from(this.#container.children)
-
-    if (sectionElements.length !== containerSections.length) return false
-
-    const sectionElementsMatch = sectionElements.every((sectionElement, index) => sectionElement === containerSections[index])
-    if (!sectionElementsMatch) return false
-
-    return true
+  #addLinkElements() {
+    this.#links.forEach((link) => this.#container.appendChild(link.element))
   }
 }

@@ -9,3 +9,5 @@ nav.addSection(section1)
 
 const section2 = new AccordNav.Section('Section 2')
 nav.addSection(section2)
+
+section2.addLink(new AccordNav.Link('Link 2.1', '#'))
