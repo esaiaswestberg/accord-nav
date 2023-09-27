@@ -1,5 +1,8 @@
+import Navigation from './navigation.js'
+
 export default class Section {
   #element = this.#createEmptyElement()
+  #navigationInstance
   #title
 
   constructor(title) {
@@ -8,12 +11,17 @@ export default class Section {
     this.#initializeElement()
   }
 
+  addSection(section) {
+    this.#navigationInstance.addSection(section)
+  }
+
   get element() {
     return this.#element
   }
 
   #initializeElement() {
     this.#element.appendChild(this.#createHeaderElement())
+    this.#element.appendChild(this.#createNavigationElement())
   }
 
   #createEmptyElement() {
@@ -47,5 +55,11 @@ export default class Section {
     sectionHeaderArrow.classList.add('accord-nav__section-header-arrow')
     sectionHeaderArrow.innerHTML = '&#8249;'
     return sectionHeaderArrow
+  }
+
+  #createNavigationElement() {
+    const navigationElement = document.createElement('nav')
+    this.#navigationInstance = new Navigation(navigationElement)
+    return navigationElement
   }
 }
