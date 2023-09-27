@@ -1,0 +1,9 @@
+{
+  "name": "accord-nav",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "keywords": [],
+  "author": "Esaias Westberg <esaias@westbergs.se>",
+  "license": "MIT"
+}
